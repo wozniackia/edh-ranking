@@ -16,7 +16,7 @@ jobs:
         java-version: 17
     # Build the Jar
     - name: Build with Gradle
-      run: gradle build
+      run: gradle build --warning-mode all
     # Login in Heroku
     - name: Heroku Container Registry login
       env: 
