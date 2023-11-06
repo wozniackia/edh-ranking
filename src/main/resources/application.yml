@@ -5,9 +5,9 @@ datasources:
   default:
     driver-class-name: org.postgresql.Driver
     dialect: POSTGRES
-    url: jdbc:postgresql://34.118.35.246:5432/postgres
-    username: postgres
-    password: mtg
+    url: jdbc:postgresql://ec2-52-215-68-14.eu-west-1.compute.amazonaws.com/dfjvre6h6ai99h
+    username: miicptypyberkd
+    password: 76f5e550fbcfa53becc60117d575e47b4808831dfb5ee171e188c4cae6762c3d
 flyway:
   datasources:
     default:
