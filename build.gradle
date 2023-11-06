@@ -77,3 +77,8 @@ jar {
 task stage(dependsOn: ['build', 'clean'])
 
 build.mustRunAfter clean
+
+task copyToLib(type: Copy) {
+    from configurations.compileClasspath
+    into 'build/libs'
+}
