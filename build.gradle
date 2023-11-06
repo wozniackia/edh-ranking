@@ -4,6 +4,7 @@ plugins {
     id("io.micronaut.application") version "4.0.4"
     id("io.micronaut.test-resources") version "4.0.4"
     id("io.micronaut.aot") version "4.0.4"
+    id "org.flywaydb.flyway" version "6.4.3"
 }
 
 version = "0.1"
@@ -36,6 +37,12 @@ application {
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
     targetCompatibility = JavaVersion.toVersion("17")
+}
+
+flyway {
+    url = 'jdbc:postgresql://34.118.35.246:5432/postgres'
+    user='postgres'
+    password='mtg'
 }
 
 graalvmNative.toolchainDetection = false

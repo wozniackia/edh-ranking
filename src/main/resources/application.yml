@@ -4,8 +4,10 @@ micronaut:
 datasources:
   default:
     driver-class-name: org.postgresql.Driver
-    db-type: postgres
     dialect: POSTGRES
+    url: jdbc:postgresql://34.118.35.246:5432/postgres
+    username: postgres
+    password: mtg
 flyway:
   datasources:
     default:
