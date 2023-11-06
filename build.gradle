@@ -12,6 +12,7 @@ group = "com.wozniacki"
 
 repositories {
     mavenCentral()
+    gradlePluginPortal()
 }
 
 dependencies {
@@ -19,14 +20,14 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.flyway:micronaut-flyway")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation('io.micronaut:micronaut-http-client:4.1.11')
+    implementation("io.micronaut.data:micronaut-data-jdbc:4.1.4")
+    implementation("io.micronaut.flyway:micronaut-flyway:6.2.1")
+    implementation("io.micronaut.serde:micronaut-serde-jackson:2.2.6")
+    implementation("io.micronaut.sql:micronaut-jdbc-hikari:5.1.0")
     compileOnly("org.projectlombok:lombok")
-    runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("ch.qos.logback:logback-classic:1.4.11")
+    runtimeOnly("org.postgresql:postgresql:42.6.0")
     runtimeOnly("org.yaml:snakeyaml")
 }
 
@@ -54,8 +55,6 @@ micronaut {
         annotations("com.wozniacki.*")
     }
     aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading = false
         convertYamlToJava = false
         precomputeOperations = true
@@ -69,6 +68,7 @@ micronaut {
 jar {
     manifest {
         attributes(
+//                'Class-Path': configurations.runtimeClasspath.files.collect { it.getName() }.join(' '),
                 'Main-Class': 'com.wozniacki.Application'
         )
     }
