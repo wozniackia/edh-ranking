@@ -7,4 +7,5 @@ import io.micronaut.data.repository.CrudRepository;
 
 @JdbcRepository(dialect = Dialect.POSTGRES)
 public interface CommanderRepository extends CrudRepository<Commander, Integer> {
+    
 }
