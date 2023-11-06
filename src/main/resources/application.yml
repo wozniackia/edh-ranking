@@ -1,0 +1,12 @@
+micronaut:
+  application:
+    name: edh-ranking
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+flyway:
+  datasources:
+    default:
+      enabled: true

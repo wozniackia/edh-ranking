@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.wozniacki
+testFramework: spock
+sourceLanguage: java
+buildTool: gradle
+features: [app-name, data, data-jdbc, flyway, gradle, http-client, java, java-application, jdbc-hikari, logback, lombok, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, postgres, readme, serialization-jackson, shade, spock, test-resources, yaml, yaml-build]
