@@ -1,7 +1,7 @@
 name: Build & Push to Heroku Docker Registry
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
