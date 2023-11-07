@@ -6,7 +6,7 @@ import io.micronaut.http.annotation.Get;
 
 @Controller("/health")
 public class HealthController {
-    @Get
+    @Get("/healthcheck")
     public HttpResponse healthcheck() {
         return HttpResponse.ok();
     }

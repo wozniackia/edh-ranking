@@ -1,1 +1,0 @@
-alter table commander drop column player;
