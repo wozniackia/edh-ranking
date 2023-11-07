@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dmicronaut.environments=heroku -Dserver.port=$PORT -jar build/libs/edh-ranking-0.1-all-optimized.jar
+java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/edh-ranking-0.1-all-optimized.jar
