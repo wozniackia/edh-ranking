@@ -1,7 +1,9 @@
 micronaut:
   server:
+    port: ${PORT:8080}
     cors:
       enabled: true
+      single-header: true
   application:
     name: edh-ranking
 datasources:
