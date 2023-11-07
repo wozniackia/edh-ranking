@@ -20,5 +20,6 @@ public class Player {
     private String nickname;
     private String firstName;
     private String lastName;
-    private int wins;
+    private int matches = 0;
+    private int wins = 0;
 }

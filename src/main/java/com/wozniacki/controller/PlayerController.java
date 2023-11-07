@@ -4,6 +4,7 @@ import com.wozniacki.persistence.entity.Player;
 import com.wozniacki.persistence.repository.PlayerRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
+import io.micronaut.http.server.cors.CrossOrigin;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Controller("api/v1/player")
 @RequiredArgsConstructor
+@CrossOrigin
 @Slf4j
 public class PlayerController {
 
@@ -46,6 +48,8 @@ public class PlayerController {
                     .nickname(nickname.orElse(""))
                     .firstName(firstName.get())
                     .lastName(lastName.get())
+                    .matches(0)
+                    .wins(0)
                     .build();
             playerRepository.save(player);
             return HttpResponse.created(player);

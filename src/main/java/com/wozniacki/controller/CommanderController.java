@@ -5,6 +5,7 @@ import com.wozniacki.persistence.entity.Player;
 import com.wozniacki.persistence.repository.CommanderRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
+import io.micronaut.http.server.cors.CrossOrigin;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Controller("api/v1/commander")
 @RequiredArgsConstructor
+@CrossOrigin
 @Slf4j
 public class CommanderController {
 
@@ -45,6 +47,8 @@ public class CommanderController {
             var commander = Commander.builder()
                     .cName(name.get())
                     .imageUrl(imageUrl.get())
+                    .matches(0)
+                    .wins(0)
                     .build();
             commanderRepository.save(commander);
             return HttpResponse.created(commander);

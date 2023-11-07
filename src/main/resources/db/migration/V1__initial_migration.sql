@@ -16,7 +16,7 @@ CREATE SEQUENCE commander_id_seq;
 CREATE TABLE commander (
     id integer not null primary key default nextval('commander_id_seq'),
     c_name varchar(20) not null,
-    image_url varchar(20) not null,
+    image_url varchar(255) not null,
     matches integer not null default 0,
     wins integer not null default 0
 );
