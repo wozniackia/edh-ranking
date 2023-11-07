@@ -1,1 +1,1 @@
-java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/edh-ranking-0.1-all-optimized.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/edh-ranking-0.1-all-optimized.jar
