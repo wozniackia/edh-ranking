@@ -43,7 +43,7 @@ public class CommanderController {
                                   @QueryValue Optional<String> imageUrl) {
         if (name.isPresent() && imageUrl.isPresent()) {
             var commander = Commander.builder()
-                    .name(name.get())
+                    .cName(name.get())
                     .imageUrl(imageUrl.get())
                     .build();
             commanderRepository.save(commander);
