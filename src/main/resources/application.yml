@@ -5,9 +5,9 @@ datasources:
   default:
     driver-class-name: org.postgresql.Driver
     dialect: POSTGRES
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
-    username: ${PGUSER}
-    password: ${PGPASSWORD}
+    url: jdbc:postgresql://${PGHOST:roundhouse.proxy.rlwy.net}:${PGPORT:25864}/${PGDATABASE:railway}
+    username: ${PGUSER:postgres}
+    password: ${PGPASSWORD:D6af143AabFf4egB*be6a*cbe*CAEd1F}
 flyway:
   datasources:
     default:
