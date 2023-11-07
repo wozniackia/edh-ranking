@@ -13,7 +13,7 @@ import lombok.Setter;
 public class Commander {
     @Id
     private Integer id;
-    private String name;
+    private String cName;
     private String imageUrl;
     private Integer matches;
     private Integer wins;
