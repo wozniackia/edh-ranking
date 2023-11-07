@@ -5,6 +5,7 @@ CREATE TABLE player (
     nickname varchar(20),
     first_name varchar(20) not null,
     last_name varchar(20) not null,
+    matches integer not null default 0,
     wins integer not null default 0
 );
 
@@ -16,8 +17,7 @@ CREATE TABLE commander (
     id integer not null primary key default nextval('commander_id_seq'),
     c_name varchar(20) not null,
     image_url varchar(20) not null,
-    player integer not null references player(id),
-    matcher integer not null default 0,
+    matches integer not null default 0,
     wins integer not null default 0
 );
 
