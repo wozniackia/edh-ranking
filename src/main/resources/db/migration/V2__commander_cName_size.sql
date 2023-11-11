@@ -1,0 +1,1 @@
+alter table commander alter column c_name type varchar(40);
