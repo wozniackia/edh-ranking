@@ -1,6 +1,7 @@
 package com.wozniacki.controller;
 
 import com.wozniacki.persistence.entity.Tournament;
+import com.wozniacki.persistence.repository.PlayerRepository;
 import com.wozniacki.persistence.repository.TournamentRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class TournamentController {
 
     private final TournamentRepository tournamentRepository;
+    private final PlayerRepository playerRepository;
 
     @Get
     public Iterable<Tournament> getAllTournaments() {
@@ -38,6 +40,19 @@ public class TournamentController {
     public Iterable<Tournament> deleteTournamentById(@PathVariable int id) {
         tournamentRepository.deleteById(id);
         return tournamentRepository.findAll();
+    }
+
+    @Patch("/register/{tournamentId}")
+    public HttpResponse<Tournament> registerPlayerToTournament(@PathVariable int tournamentId, @QueryValue int playerId) {
+        var tournament = tournamentRepository.findById(tournamentId).orElse(null);
+        var user = playerRepository.findById(playerId).orElse(null);
+        if (tournament == null || user == null) {
+            return HttpResponse.badRequest();
+        }
+        var updatedParticipants = tournament.getRegisteredParticipants();
+        updatedParticipants.add(playerId);
+        tournament.setRegisteredParticipants(updatedParticipants);
+        return HttpResponse.ok(tournament);
     }
 
     @Post("/add")
