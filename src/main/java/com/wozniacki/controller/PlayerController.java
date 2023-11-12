@@ -26,9 +26,9 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
-    @Get("/{id}")
-    public Player getPlayerById(@PathVariable int id) {
-        return playerRepository.findById(id).orElse(null);
+    @Get("/{username}")
+    public Player getPlayerById(@PathVariable String username) {
+        return playerRepository.findByUsername(username).orElse(null);
     }
 
     @Post("/delete/{id}")

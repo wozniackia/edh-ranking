@@ -47,14 +47,14 @@ public class TournamentController {
 
     @Secured(SecurityRule.IS_AUTHENTICATED)
     @Patch("/register/{tournamentId}")
-    public HttpResponse<Tournament> registerPlayerToTournament(@PathVariable int tournamentId, @QueryValue int playerId) {
+    public HttpResponse<Tournament> registerPlayerToTournament(@PathVariable int tournamentId, @QueryValue String playerUsername) {
         var tournament = tournamentRepository.findById(tournamentId).orElse(null);
-        var user = playerRepository.findById(playerId).orElse(null);
-        if (tournament == null || user == null) {
+        var player = playerRepository.findByUsername(playerUsername).orElse(null);
+        if (tournament == null || player == null) {
             return HttpResponse.badRequest();
         }
         var updatedParticipants = tournament.getRegisteredParticipants();
-        updatedParticipants.add(playerId);
+        updatedParticipants.add(player.getId());
         tournament.setRegisteredParticipants(updatedParticipants);
         return HttpResponse.ok(tournament);
     }
