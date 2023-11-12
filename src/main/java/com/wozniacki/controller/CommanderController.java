@@ -5,11 +5,14 @@ import com.wozniacki.persistence.repository.CommanderRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.http.server.cors.CrossOrigin;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("api/v1/commander")
 @RequiredArgsConstructor
 @CrossOrigin

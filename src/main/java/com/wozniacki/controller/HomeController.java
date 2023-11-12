@@ -9,7 +9,7 @@ import io.micronaut.security.rules.SecurityRule;
 
 import java.security.Principal;
 
-@Secured(SecurityRule.IS_AUTHENTICATED)
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller
 public class HomeController {
 

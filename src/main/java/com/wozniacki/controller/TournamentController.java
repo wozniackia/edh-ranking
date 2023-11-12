@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-@Secured(SecurityRule.IS_AUTHENTICATED  )
+@Secured(SecurityRule.IS_ANONYMOUS)
 @Controller("api/v1/tournament")
 @RequiredArgsConstructor
 @CrossOrigin
@@ -45,6 +45,7 @@ public class TournamentController {
         return tournamentRepository.findAll();
     }
 
+    @Secured(SecurityRule.IS_AUTHENTICATED)
     @Patch("/register/{tournamentId}")
     public HttpResponse<Tournament> registerPlayerToTournament(@PathVariable int tournamentId, @QueryValue int playerId) {
         var tournament = tournamentRepository.findById(tournamentId).orElse(null);
