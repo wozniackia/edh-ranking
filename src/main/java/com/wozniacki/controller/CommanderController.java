@@ -1,7 +1,6 @@
 package com.wozniacki.controller;
 
 import com.wozniacki.persistence.entity.Commander;
-import com.wozniacki.persistence.entity.Player;
 import com.wozniacki.persistence.repository.CommanderRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
@@ -41,7 +40,7 @@ public class CommanderController {
     }
 
     @Post("/add")
-    public HttpResponse addCommander(@QueryValue Optional<String> name,
+    public HttpResponse<Commander> addCommander(@QueryValue Optional<String> name,
                                   @QueryValue Optional<String> imageUrl) {
         if (name.isPresent() && imageUrl.isPresent()) {
             var commander = Commander.builder()

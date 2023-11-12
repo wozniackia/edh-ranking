@@ -40,7 +40,7 @@ public class PlayerController {
     }
 
     @Post("/add")
-    public HttpResponse addPlayer(@QueryValue Optional<String> firstName,
+    public HttpResponse<Player> addPlayer(@QueryValue Optional<String> firstName,
                                   @QueryValue Optional<String> lastName,
                                   @QueryValue Optional<String> nickname) {
         if (firstName.isPresent() && lastName.isPresent()) {
