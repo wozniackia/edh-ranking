@@ -8,6 +8,6 @@ import io.micronaut.data.repository.CrudRepository;
 
 @JdbcRepository(dialect = Dialect.POSTGRES)
 public interface TournamentRepository extends CrudRepository<Tournament, Integer> {
-    @Query(value = "select * from tournament order by tournament_date desc limit :limit ")
+    @Query(value = "select * from tournament where tournament_date >= now() order by tournament_date asc limit :limit ")
     Iterable<Tournament> findNewest(int limit);
 }
