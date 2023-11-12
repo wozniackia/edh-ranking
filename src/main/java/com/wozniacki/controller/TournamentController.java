@@ -46,7 +46,7 @@ public class TournamentController {
     }
 
     @Secured(SecurityRule.IS_AUTHENTICATED)
-    @Patch("/register/{tournamentId}")
+    @Post("/register/{tournamentId}")
     public HttpResponse<Tournament> registerPlayerToTournament(@PathVariable int tournamentId, @QueryValue String playerUsername) {
         var tournament = tournamentRepository.findById(tournamentId).orElse(null);
         var player = playerRepository.findByUsername(playerUsername).orElse(null);
