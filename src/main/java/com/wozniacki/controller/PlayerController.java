@@ -42,7 +42,6 @@ public class PlayerController {
         return playerRepository.findTopPlayers(limit.orElse(10));
     }
 
-    @Secured(SecurityRule.IS_AUTHENTICATED)
     @Post("/register")
     public HttpResponse<Player> registerPlayer(@QueryValue Optional<String> firstName,
                                   @QueryValue Optional<String> lastName,
