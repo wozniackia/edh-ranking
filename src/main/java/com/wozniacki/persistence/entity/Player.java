@@ -19,8 +19,10 @@ public class Player {
     @Id
     @GeneratedValue
     private Integer id;
-    @Nullable
-    private String nickname;
+    @Nonnull
+    private String username;
+    @Nonnull
+    private String password;
     @Nonnull
     private String firstName;
     @Nonnull

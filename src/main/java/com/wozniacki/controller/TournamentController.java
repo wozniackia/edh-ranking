@@ -6,12 +6,15 @@ import com.wozniacki.persistence.repository.TournamentRepository;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import io.micronaut.http.server.cors.CrossOrigin;
+import io.micronaut.security.annotation.Secured;
+import io.micronaut.security.rules.SecurityRule;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@Secured(SecurityRule.IS_AUTHENTICATED  )
 @Controller("api/v1/tournament")
 @RequiredArgsConstructor
 @CrossOrigin

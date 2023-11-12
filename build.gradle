@@ -20,15 +20,22 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut:micronaut-http-validation")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+
     implementation('io.micronaut:micronaut-http-client:4.1.11')
     implementation("io.micronaut.data:micronaut-data-jdbc:4.1.4")
     implementation("io.micronaut.flyway:micronaut-flyway:6.2.1")
     implementation("io.micronaut.serde:micronaut-serde-jackson:2.2.6")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari:5.1.0")
+    implementation 'io.micronaut.security:micronaut-security:4.2.0'
+    implementation 'io.micronaut:micronaut-validation:3.10.3'
+    implementation 'io.projectreactor:reactor-core:3.5.11'
+
     compileOnly("org.projectlombok:lombok")
+
     runtimeOnly("ch.qos.logback:logback-classic:1.4.11")
     runtimeOnly("org.postgresql:postgresql:42.6.0")
     runtimeOnly("org.yaml:snakeyaml")
+    runtimeOnly 'io.micronaut.security:micronaut-security-jwt:4.2.0'
 }
 
 

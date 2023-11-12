@@ -42,10 +42,12 @@ public class PlayerController {
     @Post("/add")
     public HttpResponse<Player> addPlayer(@QueryValue Optional<String> firstName,
                                   @QueryValue Optional<String> lastName,
-                                  @QueryValue Optional<String> nickname) {
-        if (firstName.isPresent() && lastName.isPresent()) {
+                                  @QueryValue Optional<String> username,
+                                  @QueryValue Optional<String> password) {
+        if (firstName.isPresent() && lastName.isPresent() && username.isPresent() && password.isPresent()) {
             var player = Player.builder()
-                    .nickname(nickname.orElse(""))
+                    .username(username.get())
+                    .password(password.get())
                     .firstName(firstName.get())
                     .lastName(lastName.get())
                     .matches(0)
