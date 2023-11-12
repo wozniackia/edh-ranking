@@ -31,7 +31,7 @@ public class TournamentController {
 
     @Get("/last")
     public Iterable<Tournament> getNewestTournaments(@QueryValue Optional<Integer> limit) {
-        return tournamentRepository.findNewest(limit.orElse(10));
+        return tournamentRepository.findNewest(limit.orElse(5));
     }
 
     @Post("/delete/{id}")
