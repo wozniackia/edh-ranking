@@ -1,1 +1,1 @@
-alter table tournaments alter column registered_participants type varchar[];
+alter table tournament alter column registered_participants type varchar[];
