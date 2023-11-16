@@ -54,7 +54,7 @@ public class TournamentController {
             return HttpResponse.badRequest();
         }
         var updatedParticipants = tournament.getRegisteredParticipants();
-        updatedParticipants.add(player.getId());
+        updatedParticipants.add(player.getUsername());
         tournament.setRegisteredParticipants(updatedParticipants);
         return HttpResponse.ok(tournament);
     }

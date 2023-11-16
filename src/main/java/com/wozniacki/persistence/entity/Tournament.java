@@ -29,6 +29,6 @@ public class Tournament {
     @Nonnull
     private String tournamentLocation;
     private int tournamentPrice = 10;
-    private List<Integer> registeredParticipants;
+    private List<String> registeredParticipants;
     private int availableParticipants = 10;
 }
