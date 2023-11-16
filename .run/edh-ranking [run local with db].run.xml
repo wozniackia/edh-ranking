@@ -1,0 +1,35 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="edh-ranking [run local with db]" type="GradleRunConfiguration" factoryName="Gradle">
+    <ExternalSystemSettings>
+      <option name="env">
+        <map>
+          <entry key="JWT_GENERATOR_SIGNATURE_SECRET" value="9bc85436bf26c24ecd0cbb6d2791fd4a0ab32555c196653a21df73221d6adacd" />
+          <entry key="PGDATABASE" value="railway" />
+          <entry key="PGHOST" value="viaduct.proxy.rlwy.net" />
+          <entry key="PGPASSWORD" value="D6af143AabFf4egB*be6a*cbe*CAEd1F" />
+          <entry key="PGPORT" value="57027" />
+          <entry key="PGUSER" value="postgres" />
+          <entry key="PORT" value="8080" />
+        </map>
+      </option>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list>
+          <option value="run" />
+        </list>
+      </option>
+      <option name="vmOptions" />
+    </ExternalSystemSettings>
+    <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+    <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+    <DebugAllEnabled>false</DebugAllEnabled>
+    <RunAsTest>false</RunAsTest>
+    <method v="2" />
+  </configuration>
+</component>

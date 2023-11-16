@@ -1,5 +1,6 @@
 package com.wozniacki.controller;
 
+import com.wozniacki.dto.PlayerRegisterRequest;
 import com.wozniacki.persistence.entity.Player;
 import com.wozniacki.persistence.repository.PlayerRepository;
 import io.micronaut.http.HttpResponse;
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
-@Secured(SecurityRule.IS_ANONYMOUS)
+@Secured(SecurityRule.IS_AUTHENTICATED)
 @Controller("api/v1/player")
 @RequiredArgsConstructor
 @CrossOrigin
@@ -42,17 +43,15 @@ public class PlayerController {
         return playerRepository.findTopPlayers(limit.orElse(10));
     }
 
+    @Secured(SecurityRule.IS_ANONYMOUS)
     @Post("/register")
-    public HttpResponse<Player> registerPlayer(@QueryValue Optional<String> firstName,
-                                  @QueryValue Optional<String> lastName,
-                                  @QueryValue Optional<String> username,
-                                  @QueryValue Optional<String> password) {
-        if (firstName.isPresent() && lastName.isPresent() && username.isPresent() && password.isPresent()) {
+    public HttpResponse<Player> registerPlayer(@Body PlayerRegisterRequest registerRequest) {
+        if (registerRequest.firstName().isPresent() && registerRequest.lastName().isPresent() && registerRequest.username().isPresent() && registerRequest.password().isPresent()) {
             var player = Player.builder()
-                    .username(username.get())
-                    .password(password.get())
-                    .firstName(firstName.get())
-                    .lastName(lastName.get())
+                    .username(registerRequest.username().get())
+                    .password(registerRequest.password().get())
+                    .firstName(registerRequest.firstName().get())
+                    .lastName(registerRequest.lastName().get())
                     .matches(0)
                     .wins(0)
                     .build();
