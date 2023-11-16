@@ -27,6 +27,7 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
+    @Secured(SecurityRule.IS_ANONYMOUS)
     @Get("/{username}")
     public Player getPlayerById(@PathVariable String username) {
         return playerRepository.findByUsername(username).orElse(null);
@@ -38,6 +39,7 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
+    @Secured(SecurityRule.IS_ANONYMOUS)
     @Get("/top")
     public Iterable<Player> getTopPlayers(@QueryValue Optional<Integer> limit) {
         return playerRepository.findTopPlayers(limit.orElse(10));
