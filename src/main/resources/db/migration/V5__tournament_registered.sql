@@ -1,0 +1,1 @@
+alter table tournaments alter column registered_participants varchar[];
