@@ -29,6 +29,7 @@ dependencies {
     implementation 'io.micronaut.security:micronaut-security:4.2.0'
     implementation 'io.micronaut:micronaut-validation:3.10.3'
     implementation 'io.projectreactor:reactor-core:3.5.11'
+    implementation 'com.google.guava:guava:32.1.2-jre'
 
     compileOnly("org.projectlombok:lombok")
 

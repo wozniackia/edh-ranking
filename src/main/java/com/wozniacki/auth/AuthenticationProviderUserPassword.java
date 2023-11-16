@@ -1,5 +1,6 @@
 package com.wozniacki.auth;
 
+import com.wozniacki.helper.HashHelper;
 import com.wozniacki.persistence.repository.PlayerRepository;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.http.HttpRequest;
@@ -23,7 +24,7 @@ public class AuthenticationProviderUserPassword implements AuthenticationProvide
                                                           AuthenticationRequest<?, ?> authenticationRequest) {
         return Flux.create(emitter -> {
             var player = playerRepository.findByUsername(authenticationRequest.getIdentity().toString()).orElse(null);
-            if (player != null && authenticationRequest.getSecret().equals(player.getPassword())) {
+            if (player != null && HashHelper.hashPassword((String) authenticationRequest.getSecret()).equals(player.getPassword())) {
                 emitter.next(AuthenticationResponse.success((String) authenticationRequest.getIdentity()));
                 emitter.complete();
             } else {

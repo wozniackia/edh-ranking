@@ -1,6 +1,7 @@
 package com.wozniacki.controller;
 
 import com.wozniacki.dto.PlayerRegisterRequest;
+import com.wozniacki.helper.HashHelper;
 import com.wozniacki.persistence.entity.Player;
 import com.wozniacki.persistence.repository.PlayerRepository;
 import io.micronaut.http.HttpResponse;
@@ -51,7 +52,7 @@ public class PlayerController {
         if (registerRequest.firstName().isPresent() && registerRequest.lastName().isPresent() && registerRequest.username().isPresent() && registerRequest.password().isPresent()) {
             var player = Player.builder()
                     .username(registerRequest.username().get())
-                    .password(registerRequest.password().get())
+                    .password(HashHelper.hashPassword(registerRequest.password().get()))
                     .firstName(registerRequest.firstName().get())
                     .lastName(registerRequest.lastName().get())
                     .matches(0)
